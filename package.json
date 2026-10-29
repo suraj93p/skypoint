@@ -1,0 +1,15 @@
+{
+    "name": "skypoint",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Lightweight PWA that guides your camera to the Sun or the Moon.",
+    "type": "module",
+    "scripts": {
+        "dev": "node scripts/serve.js",
+        "icons": "node scripts/make-icons.js",
+        "tunnel": "cloudflared tunnel --url http://localhost:5173"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}

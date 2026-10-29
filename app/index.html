@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Find the Sun or the Moon through your camera." />
+    <meta name="theme-color" content="#070b1c" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="SkyPoint" />
+    <title>SkyPoint</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <link rel="stylesheet" href="css/app.css" />
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+    <main class="app" data-phase="idle" data-body="sun">
+        <video class="app__camera" playsinline muted autoplay></video>
+        <canvas class="app__overlay" aria-hidden="true"></canvas>
+
+        <header class="topbar">
+            <div class="target-toggle" role="radiogroup" aria-label="Target">
+                <button class="target-toggle__option" type="button" role="radio" aria-checked="true" data-body="sun">
+                    <svg class="target-toggle__icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4.5" />
+                        <path
+                            d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" />
+                    </svg>
+                    Sun
+                </button>
+                <button class="target-toggle__option" type="button" role="radio" aria-checked="false" data-body="moon">
+                    <svg class="target-toggle__icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19.5 14.6A8 8 0 1 1 9.4 4.5a6.4 6.4 0 0 0 10.1 10.1Z" />
+                    </svg>
+                    Moon
+                </button>
+            </div>
+            <p class="topbar__meta" data-field="targetMeta"></p>
+        </header>
+
+        <section class="guidance" data-field="guidance" data-ready="false">
+            <p class="guidance__status" data-field="status" aria-live="polite">Tap Start to begin.</p>
+            <div class="guidance__moves">
+                <div class="guidance__move">
+                    <span class="guidance__label" data-field="turnLabel">Turn</span>
+                    <span class="guidance__value" data-field="turnValue">0°</span>
+                </div>
+                <div class="guidance__move">
+                    <span class="guidance__label" data-field="tiltLabel">Tilt</span>
+                    <span class="guidance__value" data-field="tiltValue">0°</span>
+                </div>
+            </div>
+            <div class="guidance__footer">
+                <span class="guidance__separation" data-field="separation"></span>
+                <span class="guidance__trend" data-field="trend" data-trend="still"></span>
+            </div>
+        </section>
+
+        <section class="gate" aria-labelledby="gate-title">
+            <h1 class="gate__title" id="gate-title">SkyPoint</h1>
+            <p class="gate__text">
+                Find the Sun or the Moon through your camera. SkyPoint uses your camera, motion sensors and
+                location, and everything is worked out on your phone.
+            </p>
+            <button class="gate__button" type="button">Start</button>
+            <p class="gate__error" role="alert" hidden></p>
+        </section>
+    </main>
+</body>
+
+</html>
